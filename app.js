@@ -59,10 +59,12 @@ const renderProfile = (userData) => {
   userName2.textContent = `@${userData.login}`;
   userName2.setAttribute("href", userData.html_url);
   userBio.textContent = userData.bio;
+  userBio.style =
+    "font-weight: bold; color: hsl(26, 82%, 57%); font-size: 1.8rem;";
 
   userLocation.innerHTML = `
         <i class="fa-solid fa-location-dot"></i>
-        <p>${userData.location}</p>
+        <p style = "font-weight: bold; color: rgb(255, 255, 255); font-size: 2rem;">${userData.location}</p>
     `;
 
   userWebsite.innerHTML = `
@@ -70,8 +72,20 @@ const renderProfile = (userData) => {
 		<a href="${userData.blog}" class="website__link" target="_blank">${userData.blog}</a>
     `;
 
+  style = "font-weight: bold; color: rgb(255, 255, 255); font-size: 1.8rem; ";
+  styletwo =
+    "font-weight: bold; color: hsl(160, 100%, 65%); font-size: 1.8rem; ";
   firstStatTitle.textContent = "Followers";
   firstStatNumber.textContent = userData.followers;
+
+  firstStatTitle.style = style;
+  secondStatTitle.style = style;
+  thirdStatTitle.style = style;
+
+  firstStatNumber.style = styletwo;
+  secondStatNumber.style = styletwo;
+  thirdStatNumber.style = styletwo;
+
   secondStatTitle.textContent = "Following";
   secondStatNumber.textContent = userData.following;
   thirdStatTitle.textContent = "Repositories";
@@ -85,14 +99,14 @@ const renderUserRepositories = async (userName, page = 1) => {
     );
     const repositories = await response.json();
     let HTMLContentToAppend = "";
-
+    // hsl(160, 100%, 65%);
     for (const repository of repositories) {
       HTMLContentToAppend += `
 				<div class="repository">
-					<a href="${repository.html_url}" class="repository__name" target="_blank">${
-        repository.name
-      }</a>
-					<p  style="font-weight: bold; color: #333;" class="repository__description">${
+					<a style="font-weight: bold; color: hsl(160, 100%, 65%); font-size: 1.8rem; "  href="${
+            repository.html_url
+          }" class="repository__name" target="_blank">${repository.name}</a>
+					<p  style="font-weight: bold; color: white;" class="repository__description">${
             repository.description
           }</p>
 					<div class="repository__info">
@@ -134,7 +148,7 @@ const renderUserFollowers = async (userName) => {
 					<div class="follower__img">
 						<img src="${follower.avatar_url}" alt="${follower.login}" />
 					</div>
-					<p class="follower__username">${follower.login}</p>
+					<p style="font-weight: bold; color: hsl(160, 100%, 65%); font-size: 1.8rem; " class="follower__username">${follower.login}</p>
 				</a>
 			`;
 

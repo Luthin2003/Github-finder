@@ -17,11 +17,7 @@
 
 body {
   background: rgb(34, 193, 195);
-  background: radial-gradient(
-    circle,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background: radial-gradient(circle, rgb(93, 0, 51) 0%, rgb(1, 58, 72) 100%);
   background-size: 500% 500%;
   animation: gradient-anim 15s ease infinite;
   margin: 0;
